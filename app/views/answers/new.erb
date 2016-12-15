@@ -2,9 +2,13 @@
 
 <h4>Create answer:</h4>
 
-<div class="create-answer">
-  <form id='new-answer-form' action="/questions/<%=@question.id%>/answers" method="post">
-    <textarea cols="40" rows="5" name="answer[body]" placeholder="answer"></textarea>
-    <input type="submit" value="submit">
-  </form>
+
+<div class="">
+  <div class="create-answer">
+    <form id='new-answer-form' action="/questions/<%=@question.id%>/answers" method="post">
+      <textarea cols="40" rows="5" name="answer[body]" placeholder="answer"></textarea>
+      <input type="submit" value="submit">
+    </form>
+  </div>
+
 </div>
