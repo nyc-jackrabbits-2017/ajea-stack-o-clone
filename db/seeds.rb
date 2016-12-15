@@ -28,16 +28,19 @@ end
     comment = Comment.create!(
     body:Faker::Lorem.paragraph,
     user_id: User.all.sample.id,
-    commentable_id:rand(30),
+    commentable_id:rand(1..30),
     commentable_type:["Question","Answer"].sample
     )
   end
 
-  50.times do
-    vote = Vote.create!(
-    count:rand(50),
-    user_id: User.all.sample.id,
-    votable_id: rand(30),
+
+
+  500.times do
+    vote = Vote.create(
+    points: [1, -1].sample,
+    user: User.all.sample,
+    # votable: (Comment.all + Question.all + Answer.all).sample
+    votable_id: rand(1..30),
     votable_type:["Answer","Question","Comment"].sample
     )
   end
