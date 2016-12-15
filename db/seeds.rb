@@ -1,5 +1,3 @@
-
-
 20.times do
   user = User.create!(
   username: Faker::Name.name,
@@ -28,16 +26,16 @@ end
     comment = Comment.create!(
     body:Faker::Lorem.paragraph,
     user_id: User.all.sample.id,
-    commentable_id:rand(30),
+    commentable_id:rand(1..30),
     commentable_type:["Question","Answer"].sample
     )
   end
 
   50.times do
     vote = Vote.create!(
-    count:rand(50),
+    points:rand(50),
     user_id: User.all.sample.id,
-    votable_id: rand(30),
+    votable_id: rand(1..30),
     votable_type:["Answer","Question","Comment"].sample
     )
   end
