@@ -31,8 +31,6 @@ end
     )
   end
 
-
-
   500.times do
     vote = Vote.create(
     points: [1, -1].sample,

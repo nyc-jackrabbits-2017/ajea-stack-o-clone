@@ -1,7 +1,6 @@
 class Vote < ActiveRecord::Base
   belongs_to :user
   belongs_to :votable, polymorphic: true
-  # validates :points,
   validates :points, uniqueness: { scope: :user,
     message: "You can only vote once!" }
 
