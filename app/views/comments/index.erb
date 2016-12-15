@@ -1,0 +1,10 @@
+<h1>Comments</h1>
+
+<% @comments.each do |comment| %>
+  <ul>
+    <li>comment: <%=comment.body%></li>
+    <p>Commented by: <%=comment.user.username%></p>
+    <p>Commenting a <%=comment.commentable_type %></p>
+    <p>Commenting on: <%=comment.commentable.body %></p>
+  </ul>
+<% end %>

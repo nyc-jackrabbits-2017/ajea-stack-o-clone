@@ -1,0 +1,13 @@
+<h1>Answers</h1>
+
+<div class="all-answers">
+  <%@answers.each do |answer| %>
+  <ul>
+    <li>answer: <%=answer.body%></li>
+    <p>user: <%=answer.user.username%></p>
+    <p>question:<%=answer.question.title%></p>
+    <p>likes: <%=answer.votes.count%></p>
+  </ul>
+  <% end %>
+
+</div>
