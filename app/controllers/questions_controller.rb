@@ -3,6 +3,18 @@ get '/questions' do
   erb :'questions/index'
 end
 
+post '/questions' do
+  @question = Question.new(params[:question])
+  @question.user_id = current_user.id
+
+  if @question.save
+    redirect '/questions'
+  else
+    @errors = @question.errors.full_messages
+    erb :'questions/new'
+  end
+end
+
 get '/questions/new' do
  erb :'questions/new'
 end
@@ -12,13 +24,15 @@ get '/questions/:id' do
   erb :'questions/show'
 end
 
-post '/questions' do
-  @question = Question.new(params[:question])
-  binding.pry
+put '/questions/:id' do
+  @question = Question.find(params[:id])
+  @question.assign_attributes(params[:question])
+
   if @question.save
-    redirect '/questions'
+    redirect "/questions/#{@question.id}"
   else
-    erb :'questions/new'
+    @errors = @question.errors.full_messages
+    erb :'questions/edit'
   end
 end
 
