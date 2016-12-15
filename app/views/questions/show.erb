@@ -1,0 +1,11 @@
+<article class="question-container">
+  <h1><%= @question.title %></h1>
+  <h2>Votes: <%= @question.votes.count %></h2>
+  <p> <%= @question.user.username %> </p>
+<p><%= @question.body %></p>
+
+<form method="post" action="/questions/<%= @question.id %>">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="delete">
+</form>
+</article>
