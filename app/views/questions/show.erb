@@ -1,7 +1,7 @@
 <article class="question-container" id="<%= @question.id %>">
-  <h1><%= @question.title %></h1>
-  <h2>Votes: <%= @question.vote_value %></h2>
-  <p> <%= @question.user.username %> </p>
+  <h3><%= @question.title %></h3>
+  <h4>Votes: <%= @question.vote_value %></h4>
+  <p> Author: <%= @question.user.username %> </p>
 <p><%= @question.body %></p>
 
 <% if current_user.username == @question.user.username %>
@@ -13,6 +13,7 @@
   </article>
 <% end %>
 
+
 <% if current_user %>
 <article class="answers container">
   <%= erb :'/answers/new' %>
@@ -20,7 +21,7 @@
 <% end %>
 
 <div class="ajea">
-  <h1> Answers </h1>
+  <h4> Answers </h4>
    <ul>
   <% @answers.each do |answer| %>
     <li>
@@ -37,3 +38,9 @@
 
 </ul>
 </div>
+
+
+<article class="answers container">
+  <%= erb :'/answers/new' %>
+  <!--  -->
+</article>
