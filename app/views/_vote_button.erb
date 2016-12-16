@@ -1,0 +1,35 @@
+<form method="post" action='INSERT ROUTE' class="inline" class="ajea vote-button-upvote">
+   <button type="submit" name="submit_param" value="submit_value" class="fa fa-sort-desc vote-button upvote-button"></button>
+</form>
+
+<form method="post" action='INSERT ROUTE' class="inline" class="ajea vote-button-downvote">
+   <button type="submit" name="submit_param" value="submit_value" class="fa fa-sort-desc vote-button downvote-button"></button>
+</form>
+
+
+
+<!-- FOR DELETING
+  if request.xhr?
+  #delete from DOM
+  content_type :json
+  {id: params[:id]}.to_json
+-->
+
+
+<!-- FOR UP-VOTING
+  INSERT-VOTEABLE_TYPE = INSERT-VOTEABLE_TYPE.find(params[:id])
+  INSERT-VOTEABLE_TYPE.votes.create(value: 1)
+  if request.xhr?
+    content_type :json
+    { id: INSERT-VOTEABLE_TYPE.id, votes: INSERT-VOTEABLE_TYPE.vote_value }.to_json
+  else
+-->
+
+<!--  FOR DOWN-VOTING
+  INSERT-VOTEABLE_TYPE = INSERT-VOTEABLE_TYPE.find(params[:id])
+  INSERT-VOTEABLE_TYPE.votes.create(value: -1)
+  if request.xhr?
+    content_type :json
+    { id: INSERT-VOTEABLE_TYPE.id, votes: INSERT-VOTEABLE_TYPE.vote_value }.to_json
+  else
+-->

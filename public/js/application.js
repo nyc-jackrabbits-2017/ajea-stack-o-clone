@@ -1,7 +1,22 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+  $(".ajea-container").on('submit', '.inline', function(event) {
+    event.preventDefault();
+    $.ajax({
+      action: $(event.target).attr('action'),
+      method: $(event.target).attr('method'),
+      data: $(event.target).serialize()
+    }).done(function(response){
+      $('#' + response['id']).find('.points').text(response['vote_value']);
+    })
+  })
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  $(".ajea-container").on('submit', '.delete', function(event) {
+    event.preventDefault();
+    $.ajax({
+      url: $(event.target).attr('action'),
+      type: "delete"
+    }).done(function(response){
+      $('#' + response['id']).remove();
+    })
+  })
 });
