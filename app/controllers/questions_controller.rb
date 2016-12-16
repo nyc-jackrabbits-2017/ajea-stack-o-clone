@@ -21,7 +21,7 @@ end
 
 get '/questions/:id' do
   @question = Question.find(params[:id])
-  binding.pry
+  # binding.pry
   @answers = @question.answers
   erb :'questions/show'
 end
