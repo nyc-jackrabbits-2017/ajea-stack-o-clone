@@ -1,9 +1,3 @@
-# WE DONT NEED THIS
-get '/answers' do
-  @answers = Answer.all
-  erb :'answers/index'
-end
-
 get '/questions/:question_id/answers/new' do
   @question = Question.find(params[:question_id])
   erb :'answers/new'
