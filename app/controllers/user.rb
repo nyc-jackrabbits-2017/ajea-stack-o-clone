@@ -1,20 +1,20 @@
-get '/users/new' do 
-	erb :'users/new'
+get '/users/new' do
+	if request.xhr?
+		erb :'_new_user', layout: false
+	else
+		erb :'users/new'
+	end
+end
 
-end 
-
-post '/users/new' do 
-
+post '/users/new' do
 	@user = User.new(params[:user])
 
-	if @user.save 
-		session[:user_id] = @user.id 
+	if @user.save
+		session[:user_id] = @user.id
 		redirect '/questions'
-	else 
+	else
 		@errors=@user.errors.full_messages
 		# note it`s plural, messages
 	    erb :'users/new'
-	end 
-end 
-
-
+	end
+end
