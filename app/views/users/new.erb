@@ -1,0 +1,18 @@
+<h> Create new Account </h>	
+
+<%if @errors %>
+<%= erb :"_errors"%>
+<%end%>
+
+
+<form action ="/users/new" method="post">
+    <label>Username:</label><br>
+	<input type="text" name="user[username]"><br>
+	<label>Username:</label><br>
+	<input type="text" name="user[email]"><br>
+	<label>Username:</label><br>
+	<input type="password" name="user[password]"><br>
+    <input type="submit" name="submit" value="Create">
+
+
+</form>
