@@ -1,7 +1,7 @@
 <article class="question-container" id="<%= @question.id %>">
-  <h1><%= @question.title %></h1>
-  <h2>Votes: <%= @question.vote_value %></h2>
-  <p> <%= @question.user.username %> </p>
+  <h3><%= @question.title %></h3>
+  <h4>Votes: <%= @question.vote_value %></h4>
+  <p> Author: <%= @question.user.username %> </p>
 <p><%= @question.body %></p>
 
 <form method="post" action="/questions/<%= @question.id %>">
@@ -11,15 +11,9 @@
 <a href="/questions/<%= @question.id %>/edit">Edit</a>
 </article>
 
-<!-- Answer box.. must add user auth  -->
-<article class="answers container">
-  <%= erb :'/answers/new' %>
- <!--  -->
-</article>
-
 
 <div class="ajea">
-  <h1> Answers </h1>
+  <h4> Answers </h4>
    <ul>
   <% @answers.each do |answer| %>
     <li>
@@ -35,3 +29,9 @@
  <% end %>
 </ul>
 </div>
+
+
+<article class="answers container">
+  <%= erb :'/answers/new' %>
+  <!--  -->
+</article>

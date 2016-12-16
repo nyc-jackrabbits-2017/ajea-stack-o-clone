@@ -5,7 +5,7 @@ end
 
 post '/questions/:question_id/answers' do
   question = Question.find(params[:question_id])
-  @answer = Answer.new(body: params[:answer], question_id: "#{question.id}", user_id: "#{question.user_id}")
+  @answer = Answer.new(body: params[:answer][:body], question_id: "#{question.id}", user_id: "#{question.user_id}")
 
   if @answer.save
     redirect "/questions/#{question.id}"
