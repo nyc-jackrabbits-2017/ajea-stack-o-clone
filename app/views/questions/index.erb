@@ -4,6 +4,7 @@
     <% @questions.each do |question| %>
      <li><%= question.votes.count %><a href='questions/<%= question.id %>'> <%= question.title %></a></li>
      <li>Author: <%= question.user.username %></li>
+     <br>
      <% end %>
    </ul>
  </div>
