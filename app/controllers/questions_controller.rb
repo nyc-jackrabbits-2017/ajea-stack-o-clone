@@ -5,7 +5,6 @@ end
 
 post '/questions' do
   @question = Question.new(params[:question])
-  @question.user_id = current_user.id
 
   if @question.save
     redirect '/questions'
@@ -21,7 +20,6 @@ end
 
 get '/questions/:id' do
   @question = Question.find(params[:id])
-  # binding.pry
   @answers = @question.answers
   erb :'questions/show'
 end
