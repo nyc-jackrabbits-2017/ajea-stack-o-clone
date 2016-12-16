@@ -22,13 +22,17 @@ $(document).ready(function() {
     .done(function(response){
       $("ul").append(response)
     })
+  })
 
   $(".ajea-container").on('submit', '.inline', function(event) {
     event.preventDefault();
+    var action = $(event.target).attr('action')
+    var method = $(event.target).attr('method')
+    var dataStuff = $(event.target).serialize()
     $.ajax({
-      action: $(event.target).attr('action'),
-      method: $(event.target).attr('method'),
-      data: $(event.target).serialize()
+      url: action,
+      method: method,
+      data: dataStuff
     }).done(function(response){
       $('#' + response['id']).find('.points').text(response['vote_value']);
     })
@@ -44,4 +48,3 @@ $(document).ready(function() {
     })
   })
 })
-});

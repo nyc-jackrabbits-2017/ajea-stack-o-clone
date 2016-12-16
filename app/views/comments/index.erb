@@ -2,6 +2,9 @@
 
 <% @comments.each do |comment| %>
   <ul>
+
+    <p>likes: <%=answer.vote_value%></p>
+
     <li>comment: <%=comment.body%></li>
     <p>Commented by: <%=comment.user.username%></p>
     <p>Commenting a <%=comment.commentable_type %></p>
