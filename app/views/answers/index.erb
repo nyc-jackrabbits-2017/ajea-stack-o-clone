@@ -1,11 +1,13 @@
 <h1>Answers</h1>
 
-<div class="all-answers">
+<div class="ajea-container">
   <%@answers.each do |answer| %>
   <ul>
     <form method="post" action='/answers/<%= answer.id %>/voteUp' class="inline" class="ajea vote-button-upvote">
        <button type="submit" name="submit_param" value="submit_value" class="fa fa-sort-desc vote-button upvote-button"></button>
     </form>
+
+    <p>likes: <%=answer.vote_value%></p>
 
     <form method="post" action='/answers/<%= answer.id %>/voteDown' class="inline" class="ajea vote-button-downvote">
        <button type="submit" name="submit_param" value="submit_value" class="fa fa-sort-desc vote-button downvote-button"></button>
@@ -14,7 +16,6 @@
     <li>answer: <%=answer.body%></li>
     <p>user: <%=answer.user.username%></p>
     <p>question:<%=answer.question.title%></p>
-    <p>likes: <%=answer.votes.count%></p>
   </ul>
   <% end %>
 
