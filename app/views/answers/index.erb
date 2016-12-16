@@ -3,6 +3,14 @@
 <div class="all-answers">
   <%@answers.each do |answer| %>
   <ul>
+    <form method="post" action='/answers/<%= answer.id %>/voteUp' class="inline" class="ajea vote-button-upvote">
+       <button type="submit" name="submit_param" value="submit_value" class="fa fa-sort-desc vote-button upvote-button"></button>
+    </form>
+
+    <form method="post" action='/answers/<%= answer.id %>/voteDown' class="inline" class="ajea vote-button-downvote">
+       <button type="submit" name="submit_param" value="submit_value" class="fa fa-sort-desc vote-button downvote-button"></button>
+    </form>
+
     <li>answer: <%=answer.body%></li>
     <p>user: <%=answer.user.username%></p>
     <p>question:<%=answer.question.title%></p>

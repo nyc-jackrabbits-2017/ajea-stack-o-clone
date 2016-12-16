@@ -2,8 +2,16 @@
   <h1> Questions </h1>
   <ul>
     <% @questions.each do |question| %>
-     <li><%= question.votes.count %><a href='questions/<%= question.id %>'> <%= question.title %></a></li>
-     <li>Author: <%= question.user.username %></li>
+      <form method="post" action='/questions/<%= question.id %>/voteUp' class="inline" class="ajea vote-button-upvote">
+        <button type="submit" name="submit_param" value="submit_value" class="fa fa-sort-desc vote-button upvote-button"></button>
+      </form>
+
+      <form method="post" action='/questions/<%= question.id %>/voteDown' class="inline" class="ajea vote-button-downvote">
+        <button type="submit" name="submit_param" value="submit_value" class="fa fa-sort-desc vote-button downvote-button"></button>
+      </form>
+
+      <li><%= question.votes.count %><a href='questions/<%= question.id %>'> <%= question.title %></a></li>
+      <li>Author: <%= question.user.username %></li>
      <% end %>
    </ul>
  </div>
