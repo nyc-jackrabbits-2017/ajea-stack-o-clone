@@ -14,3 +14,15 @@ post '/questions/:question_id/answers' do
     erb :"/questions/#{question.id}/answers/new"
   end
 end
+
+get '/answers/:answer_id/edit' do
+  if logged_in?
+    @answer = Answer.find(params[:answer_id])
+    erb :'answers/edit'
+  else
+    redirect '/questions/#'
+end
+
+delete '/answers/:answer_id' do
+
+end

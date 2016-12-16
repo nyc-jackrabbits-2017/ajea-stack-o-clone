@@ -4,21 +4,24 @@
   <p> <%= @question.user.username %> </p>
 <p><%= @question.body %></p>
 
+<% if logged_in? %>
 <form method="post" action="/questions/<%= @question.id %>">
   <input type="hidden" name="_method" value="delete">
   <input type="submit" value="delete">
 </form>
 <a href="/questions/<%= @question.id %>/edit">Edit</a>
 </article>
-
-
+<% end %>
 
 <div class="ajea">
   <h1> Answers </h1>
    <ul>
   <% @answers.each do |answer| %>
     <li>
-   <article id="<%= answer.id %>">Votes: <%= answer.vote_value %> <br> <%= answer.body %> </article>
+   <article id="<%= answer.id %>">Votes: <%= answer.vote_value %> <br> <%= answer.body %> <form method="post" action="/answers/<%= answer.id %>">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="delete">
+</form><a href="/answers/<%= answer.id %>/edit">Edit</a></article>
 
     <ul>
       <p> Comments </p>
