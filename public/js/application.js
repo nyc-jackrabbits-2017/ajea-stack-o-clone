@@ -6,8 +6,9 @@ $(document).ready(function() {
       method: "get",
       url: "/sessions/login"
     })
+
     .done(function(response){
-      $("#login").html(response)
+      $("ul").append(response)
     })
   })
 
@@ -19,7 +20,7 @@ $(document).ready(function() {
       url: "/users/new"
     })
     .done(function(response){
-      $("#register").html(response)
+      $("ul").append(response)
     })
   })
 
@@ -45,6 +46,5 @@ $(document).ready(function() {
     }).done(function(response){
       $('#' + response['id']).remove();
     })
-
-    });
   })
+})

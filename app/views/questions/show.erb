@@ -1,37 +1,46 @@
 <article class="question-container" id="<%= @question.id %>">
-  <h1><%= @question.title %></h1>
-  <h2>Votes: <%= @question.vote_value %></h2>
-  <p> <%= @question.user.username %> </p>
+  <h3><%= @question.title %></h3>
+  <h4>Votes: <%= @question.vote_value %></h4>
+  <p> Author: <%= @question.user.username %> </p>
 <p><%= @question.body %></p>
 
-<form method="post" action="/questions/<%= @question.id %>">
-  <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="delete">
-</form>
-<a href="/questions/<%= @question.id %>/edit">Edit</a>
-</article>
+<% if current_user.username == @question.user.username %>
+  <form method="post" action="/questions/<%= @question.id %>">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="delete">
+  </form>
+  <a href="/questions/<%= @question.id %>/edit">Edit</a>
+  </article>
+<% end %>
 
-<!-- Answer box.. must add user auth  -->
+
+<% if current_user %>
 <article class="answers container">
   <%= erb :'/answers/new' %>
- <!--  -->
 </article>
-
+<% end %>
 
 <div class="ajea">
-  <h1> Answers </h1>
+  <h4> Answers </h4>
    <ul>
   <% @answers.each do |answer| %>
     <li>
    <article id="<%= answer.id %>">Votes: <%= answer.vote_value %> <br> <%= answer.body %> </article>
-
     <ul>
       <p> Comments </p>
       <% answer.comments.each do |comment| %>
     <article id="<%= comment.id %>"><%= comment.body %> </article>
     <% end %>
   </ul>
+  <a href= "/questions/<%= @question.id %>/comments/new">New comment</a>
  </li>
- <% end %>
+<% end %>
+
 </ul>
 </div>
+
+
+<article class="answers container">
+  <%= erb :'/answers/new' %>
+  <!--  -->
+</article>
