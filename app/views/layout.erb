@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
 
-
   <link rel="stylesheet" href="/css/normalize.css">
   <link rel="stylesheet" href="/css/application.css">
 
@@ -12,7 +11,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
   <script src="/js/application.js" type='text/javascript'></script>
 
-<title>AJEAn</title>
+<title>AJEAn-overflow</title>
 </head>
 
 <body>
@@ -24,13 +23,30 @@
       <li><a href="/sessions/logout">Logout</a></li>
       <%else%>
       <li ><a id='login' href="/sessions/login">SignIn</a></li>
-      <li><a href="/users/new">SignUp</a></li>
+      <li><a id="register" href="/users/new">SignUp</a></li>
       <%end%>
     </ul>
   </div>
 </nav>
   <%= yield %>
+  <footer class="page-footer indigo lighten-4">
+     <div class="container">
+       <div class="row">
+         <div class="col l6 s12">
+           <h5 class="white-text">AJEAn-overflow</h5>
+           <p class="grey-text text-lighten-4">Stackoverflow clone DBC project</p>
+         </div>
+         <div class="col l4 offset-l2 s12">
+           <h5 class="white-text">Built By:</h5>
+           <ul class="white-text">
+             <li>Jessie Yang</li>
+             <li>Emily Gottlieb</li>
+             <li>Alexandra Cooper</li>
+             <li>Alex Giacobbe</li>
+           </ul>
+         </div>
+       </div>
+     </div>
+   </footer>
 </body>
-
-
 </html>

@@ -1,9 +1,12 @@
 get '/users/new' do
-	erb :'users/new'
-
+	if request.xhr?
+		erb :'_new_user', layout: false
+	else
+		erb :'users/new'
+	end
 end
 
-post '/users/new' do 
+post '/users/new' do
 	@user = User.new(params[:user])
 
 	if @user.save
