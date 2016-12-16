@@ -1,25 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!--
-    normalize.css removes cross-browser differences in defaults, e.g.,
-    differences in how form elements appear between Firefox and IE
-    See: http://necolas.github.com/normalize.css/
 
-  -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+
   <link rel="stylesheet" href="/css/normalize.css">
-  <!--
-    application.css is where you put your styles
-  -->
   <link rel="stylesheet" href="/css/application.css">
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="/js/application.js"></script>
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-  <title></title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+  <script src="/js/application.js" type='text/javascript'></script>
+
+<title>AJEAn</title>
 </head>
+
 <body>
   <nav>
   <div class="nav-wrapper indigo lighten-4">
@@ -28,28 +23,14 @@
       <%if current_user%>
       <li><a href="/sessions/logout">Logout</a></li>
       <%else%>
-      <li><a href="/sessions/login">SignIn</a></li>
+      <li ><a id='login' href="/sessions/login">SignIn</a></li>
       <li><a href="/users/new">SignUp</a></li>
       <%end%>
     </ul>
   </div>
 </nav>
   <%= yield %>
-  <footer class="page-footer indigo lighten-4">
-   <div class="container">
-     <div class="row">
-       <div class="float-right">
-         <h6 class="white-text">Created By</h6>
-         <ul class="white-text">
-           <li><p>Jessie Yang</p></li>
-           <li><p>Alexandra Cooper</p></li>
-           <li><p>Emily Gottlieb</p></li>
-           <li><p>Alex Giacobba</p></li>
-         </ul>
-       </div>
-     </div>
-   </div>
- </footer>
-
 </body>
+
+
 </html>

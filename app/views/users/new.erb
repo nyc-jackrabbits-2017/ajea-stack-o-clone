@@ -1,5 +1,5 @@
 <div class="container">
-<h> Create new Account </h>	
+<h> Create new Account </h>
 
 <%if @errors %>
 <%= erb :"_errors"%>
@@ -9,9 +9,9 @@
 <form action ="/users/new" method="post">
     <label>Username:</label><br>
 	<input type="text" name="user[username]"><br>
-	<label>Username:</label><br>
+	<label>Email:</label><br>
 	<input type="text" name="user[email]"><br>
-	<label>Username:</label><br>
+	<label>Password:</label><br>
 	<input type="password" name="user[password]"><br>
     <input type="submit" name="submit" value="Create">
 
