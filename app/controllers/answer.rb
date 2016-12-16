@@ -11,6 +11,24 @@ post '/questions/:question_id/answers' do
     redirect "/questions/#{question.id}"
   else
     @errors = @answer.errors.full_messages
-    erb :"/questions/#{question.id}/answers/new"
+    erb :"/answers/new"
   end
+end
+
+get '/answers/:answer_id/edit' do
+   @answer = Answer.find(params[:answer_id])
+   @question = @answer.question
+
+  if current_user
+    erb :'answers/edit'
+  else
+    redirect "/questions/#{@question.id}"
+  end
+end
+
+delete '/answers/:answer_id' do
+  @answer = Answer.find(params[:answer_id])
+  @question = @answer.question
+  @answer.destroy
+  redirect "/questions/#{@question.id}"
 end
