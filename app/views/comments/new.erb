@@ -1,9 +1,1 @@
-<h1>New commment</h1>
-
-<div class="new-comment">
-  <form class="new-comment-form" action="/<%=((@comment_type.class).to_s + "s").downcase%>/<%=@answer.id%>/comments" method="post">
-    <textarea name="comment[body]" placeholder="comment"></textarea>
-    <input type="submit" value="submit">
-  </form>
-
-</div>
+<%= erb :'/_new_comment_form', layout: false %>
