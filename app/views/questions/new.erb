@@ -1,3 +1,4 @@
+
 <div class="question-container">
   <h1> New Question </h1>
 <form method="post" action="/questions">
@@ -5,4 +6,9 @@
   <input type="text" name="question[body]" placeholder="Body"><br>
   <input type="submit" value="Ask!">
 </form>
+<br>
+<% if @errors %>
+  <%= erb :'_errors' %>
+<% end %>
+
 </div>
